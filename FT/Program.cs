@@ -27,3 +27,23 @@ string[] InputStringArray(int length)
     }
     return tempArray;
 }
+
+string[] ArrayWith0to3Chars(string[] initialArray)
+{
+    int length = initialArray.Length;
+    int j = 0;
+    for (int i = 0; i < length; i++)
+        if (initialArray[i].Length <= 3) // Проверка сколько элементов начального массива содержат <= 3 символа...
+            j++;
+    string[] tempArray = new string[j]; // ...чтобы создать новый массив только с необходимым кол-вом элементов.
+    j = 0;
+    for (int i = 0; i < length; i++)
+    {
+        if (initialArray[i].Length <= 3)
+        {
+            tempArray[j] = initialArray[i];
+            j++;
+        }
+    }
+    return tempArray;
+}

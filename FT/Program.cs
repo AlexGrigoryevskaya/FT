@@ -17,3 +17,13 @@ bool StringCanBeParsedToInt(string text)
     return true;
 }
 
+string[] InputStringArray(int length)
+{
+    string[] tempArray = new string[length];
+    for (int i = 0; i < length; i++)
+    {
+        Console.Write($"Введите {i + 1} элемент массива строк: ");
+        tempArray[i] = Console.ReadLine() ?? "";
+    }
+    return tempArray;
+}

@@ -47,3 +47,33 @@ string[] ArrayWith0to3Chars(string[] initialArray)
     }
     return tempArray;
 }
+
+string PrintStringArray(string[] array)
+{
+    int length = array.Length;
+    string temp = "[";
+    for (int i = 0; i < length; i++)
+        if (i < length - 1)
+            temp = temp + $"'{array[i]}', ";
+        else temp = temp + $"'{array[i]}'";
+    temp = temp + "]";
+    return temp;
+}
+Console.Clear();
+Console.Write("Введите длину массива строк: ");
+    string length = (Console.ReadLine() ?? "");
+while (!StringCanBeParsedToInt(length))
+{
+    Console.WriteLine("Вы ввели не натуральное число! Повторите ввод: ");
+    length = (Console.ReadLine() ?? "");
+}
+int securedLength = int.Parse(length);
+string[] initialArray = InputStringArray(securedLength);
+string[] finalArray = ArrayWith0to3Chars(initialArray);
+Console.WriteLine();
+Console.WriteLine("Введенный массив:");
+Console.WriteLine(PrintStringArray(initialArray));
+Console.WriteLine();
+Console.WriteLine("Сформированный массив из строк начального массива, длина которых меньше либо равна 3 символа:");
+Console.WriteLine(PrintStringArray(finalArray));
+Console.WriteLine();
